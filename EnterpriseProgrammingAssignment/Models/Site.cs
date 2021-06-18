@@ -13,6 +13,7 @@ namespace EnterpriseProgrammingAssignment.Models
         [Required(ErrorMessage = "Address is required field")]
         public string Address { get; set; }
         [DisplayName("Post Code")]
+        [StringLength(10)]
         [Required(ErrorMessage = "Post Code is required field")]
         public string PostCode { get; set; }
         [DisplayName("Manger's Name")]
@@ -20,9 +21,11 @@ namespace EnterpriseProgrammingAssignment.Models
         public string ManagerName { get; set; }
         [DisplayName("Contact E-mail")]
         [Required(ErrorMessage = "E-mail is required field")]
+        [StringLength(100)]
         public string Email { get; set; }
         [DisplayName("Contact Number")]
         [Required(ErrorMessage = "Contact Number is required field")]
+        [StringLength(15)]
         public string ContactNum { get; set; }
         public ICollection<Car> Cars { get; set; }
     }

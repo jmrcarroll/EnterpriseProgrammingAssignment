@@ -3,6 +3,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row">
+        <div class="col-md-6" style="background-color:#EEE;">
+            <h2><a class="text-dark" asp-area="" asp-controller="Sites" asp-action="Index">Sites</a></h2>
+            <div>
+                <p>this section will allows users, to add, edit, view and delete sites.</p>
+            </div>
+        </div>
+        <div class="col-md-6" style="background-color:#EEE;">
+            <h2><a class="text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars</a></h2>
+            <div>
+                <p>this section will allows users, to add, edit, view and delete Cars.</p>
+            </div>
+        </div>
+    </div>
 </div>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EnterpriseProgrammingAssignment.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,10 +14,10 @@ namespace EnterpriseProgrammingAssignment.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     ManagerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContactNum = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ContactNum = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,23 +37,23 @@ namespace EnterpriseProgrammingAssignment.Migrations
                     MOTExpDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TaxExpDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     InsuranceExpDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LocationID = table.Column<int>(type: "int", nullable: false)
+                    SiteID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cars", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Cars_Sites_LocationID",
-                        column: x => x.LocationID,
+                        name: "FK_Cars_Sites_SiteID",
+                        column: x => x.SiteID,
                         principalTable: "Sites",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_LocationID",
+                name: "IX_Cars_SiteID",
                 table: "Cars",
-                column: "LocationID");
+                column: "SiteID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

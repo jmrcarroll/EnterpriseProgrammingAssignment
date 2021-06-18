@@ -72,11 +72,13 @@ namespace EnterpriseProgrammingAssignment.Migrations
 
                     b.Property<string>("ContactNum")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ManagerName")
                         .IsRequired()
@@ -84,7 +86,8 @@ namespace EnterpriseProgrammingAssignment.Migrations
 
                     b.Property<string>("PostCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("ID");
 

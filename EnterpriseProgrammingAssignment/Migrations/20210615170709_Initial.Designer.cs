@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnterpriseProgrammingAssignment.Migrations
 {
     [DbContext(typeof(CarContext))]
-    [Migration("20210608122243_updateCars")]
-    partial class updateCars
+    [Migration("20210615170709_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,11 +74,13 @@ namespace EnterpriseProgrammingAssignment.Migrations
 
                     b.Property<string>("ContactNum")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ManagerName")
                         .IsRequired()
@@ -86,7 +88,8 @@ namespace EnterpriseProgrammingAssignment.Migrations
 
                     b.Property<string>("PostCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("ID");
 
